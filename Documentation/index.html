@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>vr-ui</title>
+		<style type="text/css">
+
+			body {
+				font-family: Helvetica;
+			}
+
+			li { margin-bottom: 5px; }
+
+			h2 { 
+				position: relative;
+				cursor: pointer; 
+			}
+
+			h2:before {
+				content: '#';
+				position: absolute;
+				left: -1em;
+				color: #BBB;
+			}
+
+			#container {
+				width: 65%;
+				margin: 0 auto;
+			}
+
+			a {
+				color: inherit;
+				border: inherit;
+				text-decoration: none;
+			}
+
+		</style>
+	</head>
+	<body>
+		<div id="container">
+			<!-- Header -->
+			<h1>vr-ui</h1>
+			<i>Created by Ben Skinner for the CSIRO as a summer vacation scholar.</i>
+
+			<hr/>
+
+			<!-- Overview -->
+			<h2><a href="#Overview" name="Overview">Overview</a></h2>
+			<p>
+				VR-UI is a small Unity package which provides functionality to create simple UI elements and interact with existing Unity scenes and code.
+			</p>
+			<p>
+				The UI elements can be hooked into scripts via UnityEvent's or through extending the base component and overriding virtual functions. They can also be customized visually through custom component properties.
+			</p>
+
+			<!-- Demo -->
+			<h2><a href="#Demo" name="Demo">Demo</a></h2>
+			<iframe width="576" height="360" src="https://www.youtube.com/embed/LIeL_C4-bbw?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
+
+			<!-- Installation -->
+			<h2><a href="#Installation" name="Installation">Installation</a></h2>
+			<p>
+				Simply drag the vr-ui.unitypackage into your unity project!
+			</p>
+
+			<!-- Usage -->
+			<h2><a href="#Usage" name="Usage">Usage</a></h2>
+			<ol>
+				<li>
+					Attach the corresponding VRUI_Controller script to your VR controller GameObject's.
+					<br>
+					<b>E.g </b>Attach VRUI_ViveController component to one or both <i>[CameraRig]/Controller's</i> GameObject's.
+				</li>
+				<li>
+					Place interactable prefabs (Assets/vr-ui/Prefabs/Interactables) in scene, scale to desired size.
+				</li>
+				<li>
+					Hook into desired scripts with state based Unity Events.
+				</li>
+				<li>
+					Enjoy!
+				</li>
+			</ol>
+
+			<!-- Structure -->
+			<h2><a href="#Structure" name="Structure">Structure</a></h2>
+			<ul>
+				<li>
+					<b>Cursor - </b><i>Assets/vr-ui/Prefabs/Resources/VRUI_Cursor</i>				
+					<br>
+					All interactables function by hooking into Unity's trigger system. As such, anything you wish to interact with must have a collider and kinematic rigid body component attached.
+					<br>
+					It also must be tagged with "VRUI-Cursor", this stops other colliders from affecting the input.
+				</li>
+				<li>
+					<b>Buttons - </b><i>Assets/vr-ui/Prefabs/Interactables/VRUI_Button</i>				
+					<br>
+					Drag and drop this prefab to create a button. Change the button type to change it's behaviour between; Toggle, and Trigger.
+				</li>
+				<li>
+					<b>Sliders - </b><i>Assets/vr-ui/Prefabs/Interactables/VRUI_Slider</i>
+					<br>
+					Drag and drop this prefab to create a slider.
+				</li>
+				<li>
+					<b>Menus - </b><i>Assets/vr-ui/Prefabs/Menus/VRUI_Menu</i>
+					<br>
+					Drag and drop this prefab to create a menu. All Interactables placed as children of this will be captured and contained by the menu and a border produced around them.
+				</li>
+			</ul>
+
+			<!-- Design -->
+			<h2><a href="#Design" name="Design">Design</a></h2>
+			<p>
+				The design of VR-UI draws inspiration from traditional 2D user interface paradigms and combines years of UI development with this new technology and medium. Currently we have two forms of interaction designs available, an Interaction Surface, and an Interaction Volume.
+				<br><br>
+				The interaction functionality has been designed around Unity triggers and events, so theoretically they should work with any VR system and controller configuration as long as the controller collider has a kinematic RigidBody component attached.
+				<br><br>
+				The surfaces are more akin to traditional, flat, ui elements. They require a physical "press" to activate and to manipulate. Their activation threshold, design, and functionality can be customized through the Unity Editor, with support for more options planned.
+				<br><br>
+				The volumes differ in design, and require the user to physically enter a volume with their cursor and then press a configurable controller button to activate.
+				<br><br>
+				<b>Interaction Surface</b>	//Push past threshold
+				<ul>
+					<li>IS_Button</li>
+					<li>IS_Slider</li>
+					<li>IS_Radial</li>
+				</ul>
+				<b>Interaction Volume</b>	//Activate within trigger
+				<ul>
+					<li>IV_Draggable</li>
+				</ul>
+			</p>
+
+			<h2><a href="#License" name="License">License</a></h2>
+			<p>
+				CSIRO Open Source Software License Agreement (variation of the BSD / MIT License)
+			</p>
+		</div>
+	</body>
+</html>
